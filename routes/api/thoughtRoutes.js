@@ -1,13 +1,13 @@
 const router = require('express').Router();
 
 const {
-  getThoughById,
-  getAllThought,
+  getThoughtById,
+  getAllThoughts,
   createThought,
   updateThought,
   deleteThought,
-  createReaction,
-  deleteReaction,
+  addReaction,
+  deleteReaction
 } = require('../../controllers/thoughtController');
 
 module.exports = router;
