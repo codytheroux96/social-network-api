@@ -75,7 +75,7 @@ const userController = {
         }
         res.json(dbUserData);
       })
-      .catch(err => res.json(err));
+      .catch((err) => res.json(err));
   },
 
   deleteFriend({ params }, res) {
@@ -86,7 +86,7 @@ const userController = {
     )
       .then((dbUserData) => {
         if (!dbUserData) {
-          res.status(404).json({ message: "No user with this ID!" });
+          res.status(404).json({ message: 'No user with this ID!' });
           return;
         }
         res.json(dbUserData);
@@ -94,7 +94,7 @@ const userController = {
       .catch((err) => res.status(400).json(err));
   },
 
-}
+};
 
 
 
