@@ -1,9 +1,10 @@
 const { Thought, User } = require('../models');
 
 const thoughtController = {
+
   createThought({ body }, res) {
     Thought.create(body)
-      .then((thoughtData) => {
+      .then(({ _id }) => {
         return User.findOneAndUpdate(
           { _id: body.userId },
           { $push: { thoughts: _id } },
@@ -83,7 +84,7 @@ const thoughtController = {
   addReaction({ params, body }, res) {
     Thought.findOneAndUpdate(
       { _id: params.thoughtId },
-      { $addToSet: { reactions: body } },
+      { $push: { reactions: body } },
       { new: true }
     )
       .then((dbThoughtData) => {
